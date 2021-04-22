@@ -1,0 +1,57 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+    style="min-height: 200px; background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-anciano opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-7 col-md-10">
+                <a [routerLink]="['/nuevo-adultomayor']" class="btn btn-new-rg"><i class="fas fa-plus"></i> Adulto
+                    Mayor</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div *ngFor="let a of nuevosAncianos; let i = index" class="col-lg-6 pd-btm">
+            <div class="card">
+                <div class="card-body">
+                    <!--Un anciano-->
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="">
+                                <img src="{{a.persona.foto}}" class="rounded-circle" style="width: 100%">
+                            </a>
+                        </div>
+                        <div class="col-lg-9">
+                            <h2 class="card-title">{{a.persona.nombre + " "+ a.persona.apellidos}}</h2>
+
+                            <div class="row mg-btm">
+                                <div class="col-sm-6"><p class="mb-0 text-sm font-weight-bold">DNI</p></div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-sm">{{a.persona.dni}}</p>
+                                </div>
+                            </div>
+                            <div class="row mg-btm">
+                                <div class="col-sm-6"><p class="mb-0 text-sm font-weight-bold">Fecha de nacimiento</p></div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-sm">{{a.persona.fechaNacimiento | date}}</p>
+                                </div>
+                            </div>
+                            <div class="row mg-btm">
+                                <div class="col-sm-8"><p class="mb-0 text-sm font-weight-bold">Actividades de la vida diaria</p></div>
+                            </div>
+                            <button *ngFor="let ab of a.ancianoABVCs"
+                            type="button" class="btn btn-azul btn-sm mg-btm" placement="bottom"
+                            ngbPopover="{{ab.abvc.descripcion}}">
+                            {{ab.abvc.tipo.nombre}}
+                            </button>                           
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+
+</div>

@@ -1,0 +1,225 @@
+<div class="main-content">
+    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+        <div class="container px-4">
+            <a class="navbar-brand" [routerLink]="['/landing']">
+                <img src="./assets/img/brand/vplogo.png" class="img-logo animated fadeIn">
+            </a>
+            <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
+                aria-controls="sidenav-collapse-main">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a routerLinkActive="active" [routerLink]="['/landing']">
+                                <img src="assets/img/imagenes/logo-vp.png">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navbar items -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="ni ni-world"></i>
+                            <span class="nav-link-inner--text">Portada</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="fas fa-users"></i>
+                            <span class="nav-link-inner--text">Quiénes Somos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="fas fa-phone-square-alt"></i>
+                            <span class="nav-link-inner--text">Contáctanos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/registrar']">
+                            <i class="ni ni-circle-08"></i>
+                            <span class="nav-link-inner--text">Registrarse</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/log-in']">
+                            <i class="ni ni-key-25"></i>
+                            <span class="nav-link-inner--text">Iniciar Sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="header bg-gradient-landing py-7 py-lg-8">
+        <div class="container">
+            <div class="header-body text-center mb-7">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5 col-md-6">
+                        <h1 class="text-white">Vida Plena!</h1>
+                        <p class="text-lead text-light">Regístrate en nuestra aplicación y disfruta de los beneficios
+                            que te ofrecemos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+                xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </div>
+    <div class="container mt--8 pb-5">
+        <!-- Table -->
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card bg-secondary shadow border-0">
+                    <div class="card-body px-lg-5 py-lg-5">
+                        <form #formulario="ngForm">
+                            <!--FOTO-->
+                            <div class="row justify-content-md-center">
+                                <div class="form-group">
+                                    <div class="profile">
+                                        <div class="avatar" style="width: 160px; height: 160px;">
+                                            <img src="https://ath2.unileverservices.com/wp-content/uploads/sites/13/2019/12/09152410/pelo-platinado-para-hombre-3-1024x1024.jpg"
+                                                alt="Circle Image" class="img-raised rounded-circle img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Nombre y apellidos-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="" placeholder="Nombre">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="" placeholder="Apellidos">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--FEcha y dni-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i
+                                                        class="ni ni-calendar-grid-58"></i></span>
+                                            </div>
+                                            <input class="form-control datepicker" placeholder="Fecha de nacimiento"
+                                                name="dp" ngbDatepicker #d="ngbDatepicker"
+                                                (click)="d.toggle()" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="" placeholder="DNI">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--sexo -->
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Sexo</label>
+                                    <!--<dt><strong>Sexo</strong></dt>-->
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="custom-control custom-radio mb-3">
+                                            <input name="custom-radio-2" class="custom-control-input" id="customRadio1"
+                                                type="radio">
+                                            <label class="custom-control-label" for="customRadio1">Femenino</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="custom-control custom-radio mb-3">
+                                            <input name="custom-radio-2" class="custom-control-input" id="customRadio2"
+                                                type="radio">
+                                            <label class="custom-control-label" for="customRadio2">Masculino</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--telefono-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="" placeholder="Teléfono">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Experiencia laboral-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <dt><strong>DATOS DE EXPERIENCIA LABORAL</strong></dt>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="" placeholder="Código de CEP">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Universidad y grado-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input class="form-control" id="" placeholder="Universidad">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <select class="custom-select text-label-select" id="inputGroupSelect01">
+                                            <option selected>Grado</option>
+                                            <option value="1">Técnico Profesional</option>
+                                            <option value="2">Bachiller</option>
+                                            <option value="3">Magister</option>
+                                            <option value="3">Doctor</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Experiencia-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control form-control-alternative" rows="3"
+                                            placeholder="Agregue más sobre su experiencia laboral ..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--BOTON REGISTRAR-->
+                            <div class="row justify-content-md-center">
+                                <button _ngcontent-qna-c108="" type="button"
+                                    class="btn btn-familiar-rg btn-lg ">Registrarme</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

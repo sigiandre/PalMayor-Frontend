@@ -1,0 +1,256 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center "
+  style="min-height: 350px; background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask  bg-gradient-anciano  opacity-8"></span>
+  <!-- Header container -->
+
+</div>
+<div class="container-fluid mt--7">
+  <div class="row justify-content-center">
+    <!--FORMULARIO-->
+    <div class="col-xl-8 order-xl-1">
+      <div class="card bg-secondary shadow">
+        <!--FOTO Y PERFIL-->
+        <div class="row justify-content-center">
+          <div class="col-lg-3 order-lg-2">
+            <div class="card-profile-image">
+              <a href="javascript:void(0)">
+                <img src="assets/img/imagenes/anciano_profile.jpg" class="rounded-circle">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Adulto mayor</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <form (ngSubmit)="registrarAnciano(formAnciano)" #formAnciano="ngForm">
+            <h6 class="heading-small text-muted mb-4">Información Personal</h6>
+            <div class="pl-lg-4">
+              <!--Nombres y apellidos-->
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group" [ngClass]="{
+                    'has-danger':
+                    nombre.errors?.required && nombre.touched
+                  }">
+                    <label class="form-control-label" for="input-nombre">Nombre</label>
+                    <input class="form-control" [ngClass]="{
+                      'is-invalid':
+                      nombre.errors?.required && nombre.touched                      
+                    }" name="nombre" #nombre="ngModel" [(ngModel)]="nuevaPersona.Nombre"
+                      placeholder="Nombre" required type="text">
+                      <div *ngIf="nombre.errors?.required" class="invalid-feedback pd-left" >
+                        Este campo es requerido
+                      </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-apellidos">Apellidos</label>
+                    <input class="form-control" [ngClass]="{
+                      'is-invalid':
+                      apellidos.errors?.required && apellidos.touched                      
+                    }" name="apellidos" [(ngModel)]="nuevaPersona.Apellidos" #apellidos="ngModel"
+                      placeholder="Apellidos" required type="text">
+                    <div *ngIf="apellidos.errors?.required" class="invalid-feedback pd-left">
+                      Este campo es requerido
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Fecha nacimiento y DNI-->
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-fechanac">Fecha de nacimiento</label>
+                    <div class="input-group input-group-alternative mb-4">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                      </div>
+                      <input class="form-control datepicker" placeholder="Fecha de nacimiento" 
+                      name="dp" ngbDatepicker [(ngModel)]="fechaNacimientoPersona"
+                      #d="ngbDatepicker" (click)="d.toggle()" required type="text"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-dni">DNI</label>
+                    <input class="form-control" [ngClass]="{
+                      'is-invalid':
+                      (dni.errors?.required || dni.errors?.minlength) && dni.touched
+                    }" name="dni" [(ngModel)]="nuevaPersona.DNI" #dni="ngModel"
+                    placeholder="DNI" required maxlength="8" minlength="8" type="text">
+                  </div>
+                  <div *ngIf="dni.errors?.required" class="invalid-feedback pd-left">
+                    Este campo es requerido
+                  </div>
+                  <div *ngIf="dni.errors?.minlength" class="invalid-feedback pd-left">
+                    Número de DNI incorrecto
+                  </div>
+                </div>
+              </div>
+              <!--Sexo-->
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="form-control-label" for="input-sexo">Sexo</label>
+                </div>
+                <div class="col-md-2" *ngFor="let s of sexos; let i = index">
+                  <div class="form-group">
+                    <div class="custom-control custom-radio mb-3">
+                      <input name="sexo" [(ngModel)]="nuevaPersona.Sexo" #sexo="ngModel"
+                       class= "custom-control-input" id={{i+50}} type="radio" [value]="s.key"
+                       required>
+                      <label class="custom-control-label" for={{i+50}}>{{s.value}}</label>
+                    </div>
+                  </div>
+                </div>                
+              </div>
+
+            </div>
+            <hr class="my-4" />
+
+            <h6 class="heading-small text-muted mb-4">Información de las actividades de la vida cotidiana</h6>
+            <div class="pl-lg-4">
+              <!--Administracion de medicamentos-->
+              <div class="row">
+                <div class="col-md-12" >
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-abvc1">Administración de medicamentos</label>
+                    <div *ngFor="let a of abvcs; let i = index">
+                      <div *ngIf="a.tipoId == 7" class="custom-control custom-radio mb-3">
+                        <input name="abvc1" [(ngModel)]="seleccionAbvc[0].abvcId" #abvc1="ngModel"
+                        class="custom-control-input" [id]="i" type="radio" [value]="a.id" required>
+                        <label class="custom-control-label" [for]="i">{{a.descripcion}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Uso de dispositivos moviles-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-abvc2">Uso de dispositivos especiales</label>
+                    <div *ngFor="let a of abvcs; let i = index">
+                      <div *ngIf="a.tipoId == 8" class="custom-control custom-checkbox mb-3">
+                        <input class="custom-control-input" name="{{a.descripcion}}" [id]="i" type="checkbox" [value]="a.id"
+                        (change)="setEspeciales($event,a.id)">
+                        <label class="custom-control-label" [for]="i">{{a.descripcion}}</label>
+                      </div>
+                    </div>                   
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <h3 style="color: #525f7f">Cuidados Personales</h3>
+              </div>
+              <!--Baño-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-banyo">Baño</label>
+                    <div *ngFor="let a of abvcs; let i = index">
+                      <div *ngIf="a.tipoId == 1" class="custom-control custom-radio mb-3">
+                        <input name="abvc3" [(ngModel)]="seleccionAbvc[1].abvcId" #abvc3="ngModel"
+                        class="custom-control-input" [id]="i" type="radio" [value]="a.id" required>
+                        <label class="custom-control-label" [for]="i">{{a.descripcion}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Vestido-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-vestido">Vestido</label>
+                    <div *ngFor="let a of abvcs; let i = index">
+                      <div *ngIf="a.tipoId == 2" class="custom-control custom-radio mb-3">
+                        <input name="abvc4" [(ngModel)]="seleccionAbvc[2].abvcId" #abvc4="ngModel"
+                        class="custom-control-input" [id]="i" type="radio" [value]="a.id" required>
+                        <label class="custom-control-label" [for]="i">{{a.descripcion}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Uso del baño-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-vestido">Uso del baño</label>
+                    <div *ngFor="let a of abvcs; let i = index">
+                      <div *ngIf="a.tipoId == 3" class="custom-control custom-radio mb-3">
+                        <input name="abvc5" [(ngModel)]="seleccionAbvc[3].abvcId" #abvc5="ngModel"
+                        class="custom-control-input" [id]="i" type="radio" [value]="a.id" required>
+                        <label class="custom-control-label" [for]="i">{{a.descripcion}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Movilidad-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-vestido">Movilidad</label>
+                    <div *ngFor="let a of abvcs; let i = index">
+                      <div *ngIf="a.tipoId == 4" class="custom-control custom-radio mb-3">
+                        <input name="abvc6" [(ngModel)]="seleccionAbvc[4].abvcId" #abvc6="ngModel"
+                        class="custom-control-input" [id]="i" type="radio" [value]="a.id" required>
+                        <label class="custom-control-label" [for]="i">{{a.descripcion}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Continencia-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-vestido">Continencia</label>
+                    <div *ngFor="let a of abvcs; let i = index">
+                      <div *ngIf="a.tipoId == 5" class="custom-control custom-radio mb-3">
+                        <input name="abvc7" [(ngModel)]="seleccionAbvc[5].abvcId" #abvc7="ngModel"
+                        class="custom-control-input" [id]="i" type="radio" [value]="a.id" required>
+                        <label class="custom-control-label" [for]="i">{{a.descripcion}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Alimentación-->
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-vestido">Alimentación</label>
+                    <div *ngFor="let a of abvcs; let i = index">
+                      <div *ngIf="a.tipoId == 6" class="custom-control custom-radio mb-3">
+                        <input name="abvc8" [(ngModel)]="seleccionAbvc[6].abvcId" #abvc8="ngModel"
+                        class="custom-control-input" [id]="i" type="radio" [value]="a.id" required>
+                        <label class="custom-control-label" [for]="i">{{a.descripcion}}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>            
+            </div>
+            <!--BOTON REGISTRAR-->
+            <div class="row justify-content-md-center">
+              <button _ngcontent-qna-c108="" type="submit" class="btn btn-anciano-rg btn-lg "
+                 >Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

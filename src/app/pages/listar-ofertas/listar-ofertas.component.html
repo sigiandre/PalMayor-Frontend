@@ -1,0 +1,69 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+    style="min-height: 350px; background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-anciano opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-7 col-md-10">
+                <a [routerLink]="['/nueva-oferta']" class="btn btn-new-rg">Nueva Oferta</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid mt--7">
+
+    <div *ngFor="let oferta of usuarioOfertas" class="card mt-card">
+        <div class="card-body">
+            <!--Un anciano-->
+            <div class="row">
+                <div class="col-sm-3">
+                    <a>
+                        <img src="{{ oferta.anciano.persona.foto }}" class="rounded-circle" style="width: 100%">
+                    </a>
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="card-title">Oferta de cuidado</h2>
+                    <dl class="row">
+                        <dt class="col-sm-4">Adulto mayor</dt>
+                        <dd class="col-sm-8">
+                            {{oferta.anciano.persona.nombre}} {{oferta.anciano.persona.apellidos}}
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-4">Días requeridos</dt>
+                        <dd class="col-sm-8">
+                            {{oferta.fechaAtenciones[0].fecha | date }} -
+                            {{oferta.fechaAtenciones[oferta.fechaAtenciones.length -1].fecha | date}}
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-4">Horario del servicio</dt>
+                        <dd class="col-sm-8">
+                            {{ oferta.fechaAtenciones[0].rangoHora.inicio | date:'hh:mm aaa' }} -
+                            {{ oferta.fechaAtenciones[0].rangoHora.fin | date:'hh:mm aaa' }}
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-4">Dirección</dt>
+                        <dd class="col-sm-8">
+                            {{ oferta.direccion }}
+                        </dd>
+                    </dl>
+                    <dl class="row">
+                        <dt class="col-sm-4">Descripción</dt>
+                        <dd class="col-sm-8">
+                            {{ oferta.descripcion }}
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-sm-1">
+                    <button _ngcontent-qna-c108="" type="button" class="btn btn-edit-rg btn-lg ">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

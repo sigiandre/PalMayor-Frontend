@@ -1,0 +1,88 @@
+<div class="main-content">
+    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+        <div class="container px-4">
+            <a class="navbar-brand" [routerLink]="['/landing']">
+                <img src="./assets/img/brand/vplogo.png" class="img-logo animated fadeIn">
+            </a>
+            <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
+                aria-controls="sidenav-collapse-main">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a routerLinkActive="active" [routerLink]="['/landing']">
+                                <img src="assets/img/imagenes/logo-vp.png">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navbar items -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="ni ni-world"></i>
+                            <span class="nav-link-inner--text">Portada</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="fas fa-users"></i>
+                            <span class="nav-link-inner--text">Quiénes Somos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="fas fa-phone-square-alt"></i>
+                            <span class="nav-link-inner--text">Contáctanos</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-seleccion bg-gradient-seleccion">
+        <div class="row justify-content-lg-center pd-top-seleccion pd-botton-seleccion">
+            <div class="col-lg-6 pd-left-seleccion animated fadeInRightBig">
+                <div class="col-lg-5 col-md-6">
+                    <i class="fas fa-user-tie fa-10x"></i>
+                </div>
+            </div>
+            <div class="col-lg-6 text-justify pd-rigth-seleccion animated fadeInLeftBig">
+                <h2 class="display-3-seleccion-w">Para publicar ofertas de cuidado, contratar enfermeros que se adecuen
+                    a las necesidades de tu adulto mayor y contactarte con ellos debes escoger <strong
+                        style="color:#FFCF00">Familiar</strong>
+                </h2>
+                <button type="button" class="btn btn-fam-seleccion btn-lg "
+                    (click)="seleccionRol('2')">Familiar</button>
+            </div>
+        </div>
+    </div>
+    <div class="container-seleccion ">
+        <div class="row justify-content-lg-center pd-top-seleccion pd-botton-seleccion">
+            <div class="col-lg-6 text-justify pd2-left-seleccion animated fadeInRightBig">
+                <h2 class="display-3-seleccion">Para postular a ofertas de cuidado, brindar tu atención a las personas
+                    de
+                    tercera edad y contribuir con su bienestar debes escoger <strong
+                        style="color:#FFCF00">Enfermero</strong>
+                </h2>
+                <button type="button" class="btn btn-fam-seleccion btn-lg "
+                    (click)="seleccionRol('3')">Enfermero</button>
+            </div>
+            <div class="col-lg-6 pd3-left-seleccion animated fadeInLeftBig">
+                <div class="col-lg-5 col-md-6">
+                    <i class="fas fa-user-nurse fa-10x"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

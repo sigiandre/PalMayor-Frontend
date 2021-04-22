@@ -1,0 +1,208 @@
+<div class="main-content">
+    <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+        <div class="container px-4">
+            <a class="navbar-brand" [routerLink]="['/landing']">
+                <img src="./assets/img/brand/vplogo.png" class="img-logo animated fadeIn">
+            </a>
+            <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
+                aria-controls="sidenav-collapse-main">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
+                <!-- Collapse header -->
+                <div class="navbar-collapse-header d-md-none">
+                    <div class="row">
+                        <div class="col-6 collapse-brand">
+                            <a routerLinkActive="active" [routerLink]="['/landing']">
+                                <img src="assets/img/imagenes/logo-vp.png">
+                            </a>
+                        </div>
+                        <div class="col-6 collapse-close">
+                            <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed">
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navbar items -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="ni ni-world"></i>
+                            <span class="nav-link-inner--text">Portada</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="fas fa-users"></i>
+                            <span class="nav-link-inner--text">Quiénes Somos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/landing']">
+                            <i class="fas fa-phone-square-alt"></i>
+                            <span class="nav-link-inner--text">Contáctanos</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/registrar']" id="registrarse">
+                            <i class="ni ni-circle-08"></i>
+                            <span class="nav-link-inner--text">Registrarse</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" [routerLink]="['/log-in']" id="login">
+                            <i class="ni ni-key-25"></i>
+                            <span class="nav-link-inner--text">Iniciar Sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--header-->
+    <div class="header bg-gradient-landing pd-header-landing animated fadeIn">
+        <div class="container">
+            <div class="header-body text-center">
+                <div class="row justify-content-start">
+                    <div class="col-lg-5 col-md-6">
+                        <h1 class="display-3-landing">Bienvenido a!</h1>
+                        <h1 class="display-1-landing">Vida Plena</h1>
+                        <p class="text-lead text-light">El portal donde el adulto mayor importa</p>
+                        <button type="button" class="btn btn-landing-rg btn-lg animated fadeInUpBig" id="btnRegistrate"
+                            [routerLink]="['/registrar']">Regístrate</button>
+                        <button type="button" class="btn btn-secondary btn-lg btn-mt animated fadeInUpBig">Sobre
+                            Nosotros</button>
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <img class="img-landing animated fadeIn" src="./assets/img/imagenes/anciano-portada.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--header end-->
+    <!-- Page content -->
+    <!-- section 1-->
+    <section>
+        <div class="container mt-section pb-5">
+            <div class="row justify-content-lg-start">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2 class="display-2-landing">Más de <strong style="color:#FFCF00">300</strong>
+                        </h2>
+                        <h2 class="display-2-landing">enfermeros</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra
+                        maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+                        ultrices gravida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 1 end-->
+
+    <!-- section 2-->
+    <section style="background-color: #2dce89 !important; color:whitesmoke !important;">
+        <div class="container mt-section pb-5">
+            <div class="row justify-content-lg-start">
+                <div class="section-title">
+                    <h2 class="display-2-landing-w" style="margin-top: 3rem;">¿Cómo funciona?</h2>
+                </div>
+            </div>
+            <div class="row justify-content-lg-start" style="padding-top: 3rem;">
+                <div class="col-lg-4">
+                    <div>
+                        <i class="far fa-id-badge fa-3x cyellow"></i>
+                    </div>
+                    <h4 class="display-4-landing">Crea una cuenta</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipi-scing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. </p>
+                </div>
+                <div class="col-lg-4">
+                    <div>
+                        <i class="far fa-hand-pointer fa-3x cyellow"></i>
+                    </div>
+                    <h4 class="display-4-landing">Escoge tu rol</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra
+                        maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+                        ultrices gravida.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div>
+                        <i class="far fa-newspaper fa-3x cyellow"></i>
+                    </div>
+                    <h4 class="display-4-landing">Publica tu oferta</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra
+                        maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+                        ultrices gravida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 2 end-->
+
+    <!-- section 3-->
+    <section>
+        <div class="container mt-section pb-5">
+            <div class="row justify-content-lg-start">
+                <div class="col-lg-6">
+                    <div class="section-title">
+                        <h2 class="display-2-landing">Trabaja con <strong style="color:#FFCF00">Nosotros</strong>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Quis ipsum sus-pendisse ultrices gravida. Risus commodo viverra
+                        maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse
+                        ultrices gravida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section 3 end-->
+</div>
+<footer class="py-5 bg-gradient-landing">
+
+    <div class="container">
+        <div class="row align-items-center justify-content-xl-between">
+            <div class="col-xl-6">
+                <div class="copyright text-center text-xl-left ">
+                    &copy; {{ anyo | date: "yyyy" }} <a href="https://www.creative-tim.com?ref=ada-footer-auth-layout"
+                        class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com?ref=ada-footer-auth-layout" class="nav-link"
+                            target="_blank">Creative Tim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/presentation?ref=ada-footer-auth-layout" class="nav-link"
+                            target="_blank">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://blog.creative-tim.com?ref=ada-footer-auth-layout" class="nav-link"
+                            target="_blank">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://github.com/creativetimofficial/argon-dashboard-angular/blob/master/LICENSE.md"
+                            class="nav-link" target="_blank">MIT License</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

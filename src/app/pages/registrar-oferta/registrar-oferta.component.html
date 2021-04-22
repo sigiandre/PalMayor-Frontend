@@ -1,0 +1,202 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+    style="min-height: 350px; background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-anciano  opacity-8"></span>
+    <!-- Header container -->
+
+</div>
+<div class="container-fluid mt--7">
+    <div class="row justify-content-center">
+        <!--FORMULARIO-->
+        <div class="col-xl-8 order-xl-1">
+            <div class="card bg-secondary shadow">
+                <div class="card-header bg-white border-0">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <h3 class="mb-0" style="color: #525f7f">Nueva Oferta de Cuidado</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <form (ngSubmit)="registrarOferta(formOferta)" #formOferta="ngForm">
+                        <h6 class="heading-small text-muted mb-4">Adulto Mayor</h6>
+                        <div class="pl-lg-4">
+                            <!--Nombres y apellidos-->
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-nombre">Nombre</label>
+                                        <div class="input-group">
+                                            <select class="custom-select text-label-select" id="selectAnciano"
+                                                name="idAnciano" #idAnciano="ngModel"
+                                                [(ngModel)]="nuevaOferta.AncianoId">
+                                                <option selected>Paciente</option>
+                                                <option *ngFor="let a of ancianos" [value]="a.id">
+                                                    {{a.nombre}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <hr class="my-4" />
+
+                        <h6 class="heading-small text-muted mb-4">Horario y Lugar de Atención
+                        </h6>
+                        <div class="pl-lg-4">
+                            <!--Horario Atencion-->
+                            <!--Hora Inicio-->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-control-label">Hora de Inicio</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <select class="custom-select text-label-select" id="selectHorasInicio"
+                                                name="horaInicio" #horaInicio="ngModel" [(ngModel)]="hrInicio">
+                                                <option selected>Horas</option>
+                                                <option *ngFor="let h of horas" [value]="h">{{h}}</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <select class="custom-select text-label-select" id="selectPeriodoInicio"
+                                                name="periodoInicio" #periodoInicio="ngModel" [(ngModel)]="prdInicio">
+                                                <option [value]="'AM'" selected>AM</option>
+                                                <option [value]="'PM'">PM</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Hora Fin-->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="form-control-label">Hora de Término</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <select class="custom-select text-label-select" id="selectHorasFin"
+                                                name="horaFin" #horaFin="ngModel" [(ngModel)]="hrFin">
+                                                <option selected>Horas</option>
+                                                <option *ngFor="let h of horas" [value]="h">{{h}}</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <select class="custom-select text-label-select" id="selectPeriodoFin"
+                                                name="periodoFin" #periodoFin="ngModel" [(ngModel)]="prdFin">
+                                                <option [value]="'AM'" selected>AM</option>
+                                                <option [value]="'PM'">PM</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Rango Fecha-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-fechainicio">Fecha Inicio de la
+                                            Atención</label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i
+                                                        class="ni ni-calendar-grid-58"></i></span>
+                                            </div>
+                                            <input class="form-control datepicker" placeholder="Dia de Inicio"
+                                                name="dInicio" [(ngModel)]="fInicio" ngbDatepicker
+                                                #dInicio="ngbDatepicker" (click)="dInicio.toggle()" type="text"
+                                                required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-fechafin">Fecha Término de la
+                                            Atención</label>
+                                        <div class="input-group input-group-alternative mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i
+                                                        class="ni ni-calendar-grid-58"></i></span>
+                                            </div>
+                                            <input class="form-control datepicker" placeholder="Dia de Término"
+                                                name="dFin" [(ngModel)]="fFin" ngbDatepicker #dFin="ngbDatepicker"
+                                                (click)="dFin.toggle()" type="text" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Direccion-->
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-direccion">Dirección del
+                                            Paciente</label>
+                                        <div class="input-group input-group-alternative mb-3">
+
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-pin-3"></i></span>
+                                            </div>
+                                            <input type="text" id="input-direccion"
+                                                class="form-control form-control-alternative" name=direccion
+                                                #direccion="ngModel" [(ngModel)]="nuevaOferta.Direccion"
+                                                placeholder="Dirección" required type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-4" />
+
+                            <!--Detalles-->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-address">Detalle (*)</label>
+                                        <textarea class="form-control form-control-alternative" rows="3"
+                                            name=descripcion #descripcion="ngModel"
+                                            [(ngModel)]="nuevaOferta.Descripcion"
+                                            placeholder="Agregue detalles que requiera especificar sobre su adulto mayor ... &nbsp;&nbsp;&nbsp;Esta casilla es opcional!!"></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--BOTON REGISTRAR-->
+                        <div class="row justify-content-md-center">
+                            <button _ngcontent-qna-c108="" type="submit"
+                                class="btn btn-anciano-rg btn-lg ">Publicar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <a class="text-primary" style="cursor:auto;"><small>(*) Casillas opcionales</small></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

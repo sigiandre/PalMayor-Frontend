@@ -1,0 +1,39 @@
+.bg-gradient-anciano
+{
+    /*background: linear-gradient(87deg, #7C7C7C 0, #B0B0B0 100%) !important;*/
+
+    background: linear-gradient(87deg, #17AE92 0, #FFCF00 100%) !important;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before
+{
+    border-color: #17AE92;
+    background-color: #17AE92;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before
+{
+    border-color: #17AE92;
+    background-color: #17AE92;
+}
+.btn-anciano-rg
+{
+    color: #fff;
+    border-color: #FFCF00;
+    background-color: #FFCF00;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+    padding-right: 34.5px;
+    padding-left: 34.5px;
+    
+}
+.btn-anciano-rg:hover
+{
+    color: #fff;
+    border-color: #FFCF00; 
+    background-color: #FFCF00;
+}
+.btn-anciano-rg:focus,
+.btn-anciano-rg.focus
+{
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08), 0 0 0 0 rgba(255, 207, 0, .5);
+}

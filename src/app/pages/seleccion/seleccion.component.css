@@ -1,0 +1,78 @@
+.bg-gradient-seleccion
+{
+    /*background: linear-gradient(87deg, #7C7C7C 0, #B0B0B0 100%) !important;*/
+
+    background: linear-gradient(87deg, #17AE92 0, #2dce89 100%) !important;
+}
+
+.container-seleccion
+{
+    width: 100% !important;
+    margin-right: auto !important;
+    margin-left: auto !important; 
+    /*height: 20rem !important;
+    /*padding-top: 10rem !important;*/
+    /*padding-bottom: 10rem !important;*/
+}
+
+.img-logo{
+    width: 9rem;
+    height: 50px !important;
+}
+
+
+.pd-left-seleccion{
+    padding-left: 20rem !important;
+}
+
+.pd2-left-seleccion{
+    padding-left: 15rem !important;
+}
+
+.pd3-left-seleccion{
+    padding-left: 15rem !important;
+}
+
+
+
+.pd-rigth-seleccion{
+    padding-right: 15rem !important;
+}
+
+.pd-top-seleccion{
+    padding-top: 9rem !important;
+}
+
+.pd-botton-seleccion{
+    padding-bottom: 5.5rem !important;
+}
+
+.display-3-seleccion-w
+{
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: whitesmoke;
+}
+
+.display-3-seleccion
+{
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #17AE92;
+}
+
+.btn-fam-seleccion
+{
+    color: #fff;
+    border-color: #FFCF00;
+    background-color: #FFCF00;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+    padding-right: 34.5px;
+    padding-left: 34.5px;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+}
+
+

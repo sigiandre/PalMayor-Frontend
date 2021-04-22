@@ -1,0 +1,82 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+    style="min-height: 200px; background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-anciano opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+        <div class="row">
+            <div class="col-lg-7 col-md-10">
+                <a [routerLink]="['/listar-ofertas']" class="btn btn-new-rg"><i class="fas fa-angle-left"></i> Regresar a mis ofertas</a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="container-fluid mt--7">
+    <div class="row">
+        <div *ngFor="let p of postulantes" class="col-lg-6 pd-btm">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href="">
+                                <img src="{{p.enfermero.persona.foto}}" class="rounded-circle" style="width: 100%">
+                            </a>
+                        </div>
+                        <div class="col-lg-9">
+                            <h2 class="card-title">{{p.enfermero.persona.nombre + " "+ p.enfermero.persona.apellidos}}</h2>
+
+                            <div class="row mg-btm">
+                                <div class="col-sm-6"><p class="mb-0 text-sm font-weight-bold">Telefono</p></div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-sm">{{p.enfermero.persona.telefono}}</p>
+                                </div>
+                            </div>
+                            <div class="row mg-btm">
+                                <div class="col-sm-6"><p class="mb-0 text-sm font-weight-bold">Colegiatura</p></div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-sm">{{p.enfermero.colegiatura}}</p>
+                                </div>
+                            </div>
+                            <div class="row mg-btm">
+                                <div class="col-sm-6"><p class="mb-0 text-sm font-weight-bold">Centro de estudios</p></div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-sm">{{p.enfermero.universidad}}</p>
+                                </div>
+                            </div>
+                            <div class="row mg-btm">
+                                <div class="col-sm-6"><p class="mb-0 text-sm font-weight-bold">Grado</p></div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-sm">{{p.enfermero.grado.nombre}}</p>
+                                </div>
+                            </div>
+                            <div class="row mg-btm">
+                                <div class="col-sm-6"><p class="mb-0 text-sm font-weight-bold">Especialidad</p></div>
+                                <div class="col-sm-6">
+                                    <p class="mb-0 text-sm">{{p.enfermero.especialidad.nombre}}</p>
+                                </div>
+                            </div>
+                            <div class="row mg-btm">
+                                <div class="col-sm-12"><p class="mb-0 text-sm font-weight-bold">Experiencia</p></div>                                
+                            </div>
+                            <div class="row mg-btm">                                
+                                <div class="col-sm-12">
+                                    <p class="mb-0 text-sm">{{p.enfermero.experiencia}}</p>
+                                </div>
+                            </div>
+                            <div class="row mg-btm">
+                                <div class="col-sm-12  ">
+                                    <p class="mb-0 text-sm float-right">
+                                        <img class="mg-img" src="https://img.icons8.com/color/48/000000/whatsapp.png"/>                                        
+                                        <button type="submit" class="btn btn-primary" id="" (click)="contratarEnfermero(p.enfermeroId)">Contratar</button>
+                                    </p>
+                                </div>
+                            </div>                                                    
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
